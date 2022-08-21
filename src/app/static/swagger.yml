@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  description: This is a sample app for interview purpose for Peter Park
+  version: 0.0.1
+  title: Peter Park
+  contact:
+    email: amir.malayjerdi@gmail.com
+
+paths:
+  /plate:
+    post:
+      tags:
+        - Plate
+      summary: Insert a new plate
+      description: This endpoint accepts a new plate entry.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/InsertPlate'
+      responses:
+        '200':
+          description: Done
+        '400':
+          description: Malformed Request
+        '422':
+          description: Wrong format
+
+
+    get:
+      tags:
+        - Plate
+      summary: Get all plates
+      description: This endpoint returns all plates available.
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/definitions/Plate'
+    
+  /search-plate:
+    get:
+      tags:
+        - Search Plates Levenshtein
+      summary: Search based on Levenshtein
+      description: This endpoint does search based on Levenshtein.
+      parameters:
+              - name: key
+                in: query
+                description: keyword for search on plates
+                required: true
+                schema:
+                  type: string
+              - name: levenshtein
+                in: query
+                description: Lev distance value
+                schema:
+                  type: integer
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/definitions/Plate'           
+     
+
+definitions:
+  Plate:
+    type: object
+    properties:
+      plate:
+        type: string
+        example: MM-NB20
+      timestamp:
+        type: string
+        example: '2022-08-20T20:05:47.140671'
+  InsertPlate:
+    type: object
+    properties:
+      plate:
+        type: string
+        example: MM-NB20
+        
+
