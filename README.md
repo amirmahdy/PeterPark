@@ -19,6 +19,9 @@ Note:
 After successfully runnging the application you can navigate to :
 http://127.0.0.1:5000/api/docs
 
+Note:
+The Levenshtein mechanism in this application is being handled by the database itself. The reason behind this is the efficiency of making queries on the db compared to Python app. In order to understand and mimic the method on the app, there is a file under this name in the Plate app. It can be used to verfy the lev_dist on a query set.
+
 ## API Reference
 
 #### Get all items
