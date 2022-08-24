@@ -11,6 +11,7 @@ bp = Blueprint('plate_search', __name__)
 @unpredicted_exception_handler('DEBUG')
 def index():
     key = request.args.get('key', None)
+    key = key.replace('-', '')
     levenshtein = request.args.get('levenshtein', 0)
 
     plates = database.search_lev(Plates, search_text=key, lv_dist=levenshtein)
