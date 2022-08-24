@@ -1,4 +1,6 @@
 import re
+import inspect
+from app.exception_handler import exception_handler
 plate_regex = "^[a-zA-Z]{1,3}-[a-zA-Z]{1,2}[1-9][0-9]{0,3}$"
 
 
@@ -13,4 +15,5 @@ def validate_plate(input):
         else:
             return False
     except:
+        exception_handler("DEBUG", inspect.currentframe())
         return None
