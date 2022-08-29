@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
-  description: This is a sample app for interview purpose for Peter Park
+  description: This app is inteded to validate Valid licence plates.
   version: 0.0.1
-  title: Peter Park
+  title: Licence Plate
   contact:
     email: amir.malayjerdi@gmail.com
 

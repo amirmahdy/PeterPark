@@ -1,4 +1,4 @@
-# PeterPark
+# Plate Recognition
 
 This application is designed to write (validated) German licence plates, return and search over with Levenshtein distance variable.
 
